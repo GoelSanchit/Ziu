@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pnikosis.materialishprogress.ProgressWheel;
+import com.ziuapp.ziu.utils.Utilities;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -39,6 +40,8 @@ public class Book extends Activity {
     EditText dealedit;
     EditText salonedit;
     Button book;
+
+    private ProgressWheel mProgressWheel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +53,18 @@ public class Book extends Activity {
         mobileedit = (EditText) findViewById(R.id.mobileedit);
         dealedit = (EditText) findViewById(R.id.dealedit);
         salonedit = (EditText) findViewById(R.id.salonedit);
+        mProgressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
         book = (Button) findViewById(R.id.submit);
 
         book.setOnClickListener(new View.OnClickListener() {
-
+           // private Context mContext;
             InputStream is=null;
             public void onClick(View view) {
+             /*   if (!Utilities.isNetworkAvailable(mContext)) {
+                    Toast.makeText(mContext, "Check Your Network Connection!", Toast.LENGTH_LONG).show();
+                    return;
+                }*/
+
                 String name = nameedit.getText().toString();
                 String mobile = mobileedit.getText().toString();
                 String deal = dealedit.getText().toString();
@@ -76,12 +85,14 @@ public class Book extends Activity {
                     nameValuePairs.add(new BasicNameValuePair("deal", deal));
                     nameValuePairs.add(new BasicNameValuePair("salon", salon));
                     try {
+                        showProgressWheel();
                         HttpClient httpclient = new DefaultHttpClient();
                         HttpPost httppost = new HttpPost("http://sanchitgoel.net78.net/login2.php");
                         httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                         HttpResponse response = httpclient.execute(httppost);
                         HttpEntity entity = response.getEntity();
                         is = entity.getContent();
+                        hideProgressWheel();
                         nameedit.setText("");
                         mobileedit.setText("");
                         dealedit.setText("");
@@ -114,6 +125,21 @@ public class Book extends Activity {
             return true;
         }
         return false;
+    }
+
+    // progress
+
+    private void showProgressWheel() {
+        mProgressWheel.setVisibility(View.VISIBLE);
+        book.setVisibility(View.GONE);
+        mProgressWheel.spin();
+    }
+
+    private void hideProgressWheel() {
+        if (mProgressWheel.isSpinning())
+            mProgressWheel.stopSpinning();
+        book.setVisibility(View.VISIBLE);
+        mProgressWheel.setVisibility(View.GONE);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
