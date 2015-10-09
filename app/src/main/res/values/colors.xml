@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="orange">#ffffdc7e</color>
+    <color name="grey">#ffd3d3d3</color>
+    <color name="green">#ff8dd304</color>
+    <color name="blue">#ff82e0ff</color>
+    <color name="yellow">#fffffbae</color>
+    <color name="red">#fff10800</color>
+    <color name="list_item_pressed">#1A000000</color>
+
+    <color name="color1">#ff0f9d58</color>
+    <!--<color name="theme_color_pressed">#ffdb4437</color>-->
+    <color name="theme_color_pressed">#4e004e</color>
+    <color name="color3">#ff4285f4</color>
+    <color name="color4">#fff4b400</color>
+
+
+    <!-- <color name="theme_color">#da552f</color>-->
+    <color name="theme_color">#670067</color>
+    <color name="tag_color">#999999</color>
+
+    <!--card-->
+    <color name="teal">#009688</color>
+    <color name="black_87">#DD000000</color>
+    <color name="black_54">#89000000</color>
+</resources>

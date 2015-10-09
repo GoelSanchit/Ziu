@@ -1,0 +1,95 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="SampleWidget" />
+
+    <style name="MyNavigationDrawerTheme" parent="MaterialNavigationDrawerTheme.Light.DarkActionBar">
+        <item name="colorPrimary">@color/theme_color</item>
+        <item name="colorPrimaryDark">@color/theme_color_pressed</item>
+        <item name="colorAccent">#FFFFFF</item>
+
+        <!-- Other customization -->
+        <item name="drawerColor">#FFFFFF</item>
+        <item name="sectionStyle">@style/MySectionTheme</item>
+        <item name="subheaderStyle">@style/MySubheaderTheme</item>
+    </style>
+
+    <!-- Navigation Drawer -->
+    <style name="MySubheaderTheme">
+        <item name="subheaderTitleColor">@color/theme_color</item>
+    </style>
+
+    <style name="MySectionTheme" >
+        <item name="sectionColorIcon">@color/theme_color</item>
+        <item name="sectionColorText">@color/theme_color</item>
+        <item name="sectionColorNotification">@android:color/white</item>
+        <item name="sectionBackgroundColorPressed">#160000FF</item>
+        <item name="sectionBackgroundColorSelected">#0A0000FF</item>
+        <item name="sectionBackgroundColor">#000000FF</item>
+    </style>
+
+
+    <style name="TextAppearance.SectionText" parent="android:TextAppearance.Small">
+        <!-- Custom Attr-->
+        <!--<item name="fontPath">fonts/lato-italic.ttf</item>-->
+        <item name="android:textColor">@color/theme_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--Card-->
+
+    <!--<item name="android:layout_marginLeft">@dimen/card_margin</item>-->
+    <!--<item name="android:layout_marginRight">@dimen/card_margin</item>-->
+
+    <style name="Widget.SampleDashboard.Card" parent="SampleWidget">
+        <item name="android:gravity">center</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="contentPadding">@dimen/card_padding</item>
+    </style>
+
+    <style name="Widget.SampleDashboard.Item" parent="SampleWidget">
+    </style>
+
+    <style name="Widget.SampleDashboard.Item.Title" parent="SampleWidget">
+        <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textColor">@color/theme_color</item>
+        <!--<item name="fontFamily">sans-serif</item>-->
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Widget.SampleDashboard.Item.Description" parent="SampleWidget">
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <!--<item name="fontFamily">sans-serif-light</item>-->
+        <item name="android:textColor">@color/black_87</item>
+    </style>
+
+    <!--card end-->
+
+    <style name="Widget" />
+
+    <!--action bar -->
+
+    <style name="Widget.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse" />
+
+    <style name="Widget.Light" />
+
+    <style name="Widget.Light.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid" />
+
+    <style name="Widget.ActionBar.Transparent">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.Light.ActionBar.Transparent">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+    <!-- action bar end -->
+
+</resources>
