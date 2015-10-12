@@ -4,14 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,7 +34,7 @@ import java.util.List;
 /**
  * Created by user on 07-10-2015.
  */
-public class Book extends Fragment {
+public class BookActivity extends Activity {
     EditText nameedit;
     EditText mobileedit;
     EditText dealedit;
@@ -46,22 +43,21 @@ public class Book extends Fragment {
 
     private ProgressWheel mProgressWheel;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.book, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         //setup the strict policy
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
-        nameedit = (EditText) rootView.findViewById(R.id.nameedit);
-        mobileedit = (EditText) rootView.findViewById(R.id.mobileedit);
-        dealedit = (EditText) rootView.findViewById(R.id.dealedit);
-        salonedit = (EditText) rootView.findViewById(R.id.salonedit);
-        mProgressWheel = (ProgressWheel) rootView.findViewById(R.id.progress_wheel);
-        book = (Button) rootView.findViewById(R.id.submit);
+        setContentView(R.layout.book);
+        nameedit = (EditText) findViewById(R.id.nameedit);
+        mobileedit = (EditText) findViewById(R.id.mobileedit);
+        dealedit = (EditText) findViewById(R.id.dealedit);
+        salonedit = (EditText) findViewById(R.id.salonedit);
+        mProgressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
+        book = (Button) findViewById(R.id.submit);
 
         book.setOnClickListener(new View.OnClickListener() {
-           // private Context mContext;
+            // private Context mContext;
             InputStream is=null;
             public void onClick(View view) {
              /*   if (!Utilities.isNetworkAvailable(mContext)) {
@@ -101,7 +97,7 @@ public class Book extends Fragment {
                         mobileedit.setText("");
                         dealedit.setText("");
                         salonedit.setText("");
-                        Toast.makeText(getActivity(), "Booked Successfully",
+                        Toast.makeText(getApplicationContext(), "Booked Successfully",
                                 Toast.LENGTH_LONG).show();
 
                     } catch (ClientProtocolException e) {
@@ -114,7 +110,7 @@ public class Book extends Fragment {
                 }
             }
         });
-       return rootView;
+
     }
 
     private boolean isValidUsername(String user) {
@@ -145,6 +141,11 @@ public class Book extends Fragment {
         book.setVisibility(View.VISIBLE);
         mProgressWheel.setVisibility(View.GONE);
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
 }

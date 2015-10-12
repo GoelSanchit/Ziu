@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,39 +11,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.gson.JsonArray;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
-import com.melnykov.fab.ObservableScrollView;
-import com.melnykov.fab.FloatingActionButton;
+
 import com.pnikosis.materialishprogress.ProgressWheel;
 import com.ziuapp.ziu.adapters.ServiceListAdapter;
 import com.ziuapp.ziu.entities.Service;
 import com.ziuapp.ziu.utils.Utilities;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Observable;
-
-import android.os.Handler;
-
-
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 import it.neokree.materialnavigationdrawer.elements.MaterialSection;
-
 import static com.ziuapp.ziu.utils.Utilities.customStyle;
-import static com.ziuapp.ziu.utils.Utilities.share;
+
 
 
 public class ServiceDiscovery extends MaterialNavigationDrawer {
@@ -56,7 +38,7 @@ public class ServiceDiscovery extends MaterialNavigationDrawer {
 
         // Categories
         MaterialSection trending = newSection("Trending", new PlaceholderFragment());
-        MaterialSection appointment = newSection("Book Appointment", new PlaceholderFragment());
+        MaterialSection appointment = newSection("Book Appointment", new Book());
         MaterialSection delivery = newSection("Book Delivery", new PlaceholderFragment());
 
 
@@ -150,7 +132,8 @@ public class ServiceDiscovery extends MaterialNavigationDrawer {
                                     mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                         @Override
                                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                            startActivity(new Intent(getActivity(), Book.class));
+                                            startActivity( new Intent(getActivity(),BookActivity.class));
+
                                         }
                                     });
                                 } else {
@@ -165,7 +148,7 @@ public class ServiceDiscovery extends MaterialNavigationDrawer {
                 mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        startActivity(new Intent(getActivity(), Book.class));
+                        startActivity( new Intent(getActivity(),BookActivity.class));
                     }
                 });
             }
