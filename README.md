@@ -1,5 +1,5 @@
 # Ziu
-An App On Beauty & Wellness Platform.
+An App On Beauty & Wellness Platform..
 #Trending
 #Book Appointment
 #Delivery Book
