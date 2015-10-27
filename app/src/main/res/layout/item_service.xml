@@ -23,7 +23,7 @@
 
             <TextView
                 android:id="@+id/service_title"
-                android:text="asdasd"
+                android:text="#RassiJuda ReflectionSalon 100rs"
                 android:textSize="@dimen/textSize"
                 android:textStyle="bold"
                 android:textAppearance="@android:style/TextAppearance.Small"

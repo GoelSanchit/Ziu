@@ -1,6 +1,7 @@
 package com.ziuapp.ziu.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.squareup.picasso.Picasso;
+import com.ziuapp.ziu.BookActivity;
 import com.ziuapp.ziu.R;
 import com.ziuapp.ziu.entities.Service;
 
@@ -20,7 +22,6 @@ import java.util.ArrayList;
  * Created by ABHIJEET on 23-05-2015.
  */
 public class ServiceListAdapter extends ArrayAdapter<Service> {
-
     public ServiceListAdapter(Context context, ArrayList<Service> items) {
         super(context, 0, items);
     }

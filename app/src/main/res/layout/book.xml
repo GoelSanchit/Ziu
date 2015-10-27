@@ -19,7 +19,7 @@
         android:padding="10dp"
         android:text="Book Appointment"
         android:textStyle="bold"
-        android:textSize="@dimen/textSize"
+        android:textSize="30dp"
         android:textColor="#000"
         android:id="@+id/bookappointment"
         android:layout_alignParentTop="true"

@@ -38,14 +38,9 @@ public class ServiceDiscovery extends MaterialNavigationDrawer {
 
         // Categories
         MaterialSection trending = newSection("Trending", new PlaceholderFragment());
-        MaterialSection appointment = newSection("Book Appointment", new Book());
-        MaterialSection delivery = newSection("Book Delivery", new PlaceholderFragment());
-
 
         // create sections
         this.addSection(customStyle(this,trending));
-        this.addSection(customStyle(this,appointment));
-        this.addSection(customStyle(this,delivery));
 
         // setting selected materal section, putting sections in an array
         //this.setSection();
@@ -117,7 +112,7 @@ public class ServiceDiscovery extends MaterialNavigationDrawer {
 
                 Ion
                         .with(mContext)
-                        .load("https://api.github.com/users/voidabhi/repos")
+                        .load("http://sanchitgoel.net78.net/ziu.php")
                         .asJsonArray()
                         .setCallback(new FutureCallback<JsonArray>() {
                             @Override
@@ -126,14 +121,17 @@ public class ServiceDiscovery extends MaterialNavigationDrawer {
                                 if (e == null) {
                                     services = new ArrayList<Service>();
                                     for (int i = 0; i < result.size(); i++) {
-                                        services.add(new Service(result.get(i).getAsJsonObject().get("name").getAsString(), "http://i.imgur.com/4GfhqNA.jpg"));
+                                        services.add(new Service(result.get(i).getAsJsonObject().get("text").getAsString(), result.get(i).getAsJsonObject().get("url").getAsString()));
                                     }
                                     mGridView.setAdapter(new ServiceListAdapter(mContext, services));
                                     mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                         @Override
                                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                            startActivity( new Intent(getActivity(),BookActivity.class));
-
+                                           // startActivity( new Intent(getActivity(),BookActivity.class));
+                                            ServiceListAdapter category = new ServiceListAdapter(mContext,services);
+                                            Intent i = new Intent(getActivity(),BookActivity.class);
+                                            i.putExtra("title",category.getItem(position).getTitle());
+                                            startActivity(i);
                                         }
                                     });
                                 } else {

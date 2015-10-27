@@ -40,6 +40,7 @@ public class BookActivity extends Activity {
     EditText dealedit;
     EditText salonedit;
     Button book;
+    String newdeal;
 
     private ProgressWheel mProgressWheel;
     @Override
@@ -55,7 +56,19 @@ public class BookActivity extends Activity {
         salonedit = (EditText) findViewById(R.id.salonedit);
         mProgressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
         book = (Button) findViewById(R.id.submit);
-
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                newdeal= null;
+            } else {
+                newdeal= extras.getString("title");
+            }
+        } else {
+            newdeal= (String) savedInstanceState.getSerializable("title");
+        }
+        String[] arr = newdeal.split(" ");
+        dealedit.setText(arr[0].trim());
+        salonedit.setText(arr[1].trim());
         book.setOnClickListener(new View.OnClickListener() {
             // private Context mContext;
             InputStream is=null;
