@@ -1,4 +1,4 @@
-<?ph
+<?php
 // config
 $accountId = id_name;
 $database = 'todo';
