@@ -18,6 +18,6 @@ if ($errorMsg) {
 }
 curl_close($ch);
 
-echo json_encode($response->results);
+echo json_encode($response->results); //list items as json array
 
 ?>
