@@ -1,4 +1,4 @@
-package com.ziuapp.ziu
+package com.ziuapp.ziu;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
