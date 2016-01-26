@@ -1,5 +1,5 @@
 <?php 
-$services = getenv("VCAP_SERVICES")
+$services = getenv("VCAP_SERVICES");
 $services_json = json_decode($services,true);
 $mysql_config = $services_json["mysql-5.5"][0]["credentials"]; 
 $db = $mysql_config["d464afbad3af14930846ac5d26f2bd9a8"]; 
