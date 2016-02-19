@@ -112,7 +112,7 @@ public class ServiceDiscovery extends MaterialNavigationDrawer {
 
                 Ion
                         .with(mContext)
-                        .load("http://sanchitgoel.net78.net/ziu.php")
+                        .load("http://ziuenigma.mybluemix.net/ziu_boys.json")
                         .asJsonArray()
                         .setCallback(new FutureCallback<JsonArray>() {
                             @Override
