@@ -1,0 +1,43 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.melnykov.fab.ObservableScrollView
+        android:id="@+id/sv_service_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:fab="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:id="@+id/ll_service_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#e7e7e7"
+            android:orientation="vertical">
+
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/slider"
+                android:layout_width="fill_parent"
+                android:layout_height="180dp"
+                xmlns:android="http://schemas.android.com/apk/res/android" />
+
+        </LinearLayout>
+
+    </com.melnykov.fab.ObservableScrollView>
+
+    <com.melnykov.fab.FloatingActionButton
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|right"
+    android:layout_margin="16dp"
+    android:src="@drawable/ic_share_white_24dp"
+    fab:fab_colorNormal="@color/theme_color"
+    fab:fab_colorPressed="@color/theme_color_pressed"
+    />
+
+ </FrameLayout>
