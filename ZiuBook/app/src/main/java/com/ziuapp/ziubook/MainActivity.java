@@ -31,7 +31,6 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 public class MainActivity extends Activity {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
